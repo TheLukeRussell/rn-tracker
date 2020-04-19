@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-navigation';
 import { requestPermissionsAsync, watchPositionAsync, Accuracy } from 'expo-location';
 import Map from '../components/Map';
 import { Context as LocationContext } from '../context/LocationContext';
+import { FontAwesome } from '@expo/vector-icons';
 
 const TrackCreateScreen = () => {
   const { addLocation } = useContext(LocationContext);
@@ -42,6 +43,12 @@ const TrackCreateScreen = () => {
     </SafeAreaView>
   );
 };
+
+TrackCreateScreen.navigationOptions = {
+  title: 'Add Track',
+  tabBarIcon: <FontAwesome name='plus' size={20} />,
+};
+
 const styles = StyleSheet.create({});
 
 export default TrackCreateScreen;
