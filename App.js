@@ -2,8 +2,8 @@ import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import SignupScreen from './src/screens/SignupScreen';
 import SigninScreen from './src/screens/SigninScreen';
+import SignupScreen from './src/screens/SignupScreen';
 import AccountScreen from './src/screens/AccountScreen';
 import TrackCreateScreen from './src/screens/TrackCreateScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
@@ -20,9 +20,27 @@ const trackListFlow = createStackNavigator({
   TrackDetail: TrackDetailScreen,
 });
 
+const trackCreateFlow = createStackNavigator({
+  TrackCreate: TrackCreateScreen,
+});
+
+const accountFlow = createStackNavigator({
+  Account: AccountScreen,
+});
+
+accountFlow.navigationOptions = {
+  title: 'Account',
+  tabBarIcon: <FontAwesome name='gear' size={20} />,
+};
+
 trackListFlow.navigationOptions = {
   title: 'Tracks',
   tabBarIcon: <FontAwesome name='th-list' size={20} />,
+};
+
+trackCreateFlow.navigationOptions = {
+  title: 'Add Track',
+  tabBarIcon: <FontAwesome name='plus' size={20} />,
 };
 
 const switchNavigator = createSwitchNavigator({
@@ -33,8 +51,8 @@ const switchNavigator = createSwitchNavigator({
   }),
   mainFlow: createBottomTabNavigator({
     trackListFlow,
-    TrackCreate: TrackCreateScreen,
-    Account: AccountScreen,
+    trackCreateFlow,
+    accountFlow,
   }),
 });
 

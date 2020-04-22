@@ -19,14 +19,14 @@ const TrackForm = () => {
       </Spacer>
       <Spacer>
         {recording ? (
-          <Button title='Stop' onPress={stopRecording} />
+          <Button raised title='Stop' onPress={stopRecording} />
         ) : (
-          <Button onPress={startRecording} title='Start Recording' />
+          <Button raised onPress={startRecording} title='Start Recording' />
         )}
       </Spacer>
       <Spacer>
         {!recording && locations.length ? (
-          <Button title='Save Recording' onPress={saveTrack} />
+          <Button raised title='Save Recording' onPress={saveTrack} />
         ) : null}
       </Spacer>
     </>
