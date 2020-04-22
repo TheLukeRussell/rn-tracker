@@ -24,7 +24,7 @@ const tryLocalSignin = (dispatch) => async () => {
     dispatch({ type: 'signin', payload: token });
     navigate('TrackList');
   } else {
-    navigate('loginFlow');
+    navigate('Signup');
   }
 };
 
@@ -52,10 +52,8 @@ const signin = (dispatch) => async ({ email, password }) => {
     const response = await trackerApi.post('/signin', { email, password });
     await AsyncStorage.setItem('token', response.data.token);
     dispatch({ type: 'signin', payload: response.data.token });
-
     navigate('TrackList');
   } catch (err) {
-    console.log(err);
     dispatch({
       type: 'add_error',
       payload: 'Something went wrong with sign in',

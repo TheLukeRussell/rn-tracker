@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
 import { Context as AuthContext } from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
@@ -17,7 +17,7 @@ const SignupScreen = ({ navigation }) => {
         submitButtonText='Sign Up'
         onSubmit={signup}
       />
-      <NavLink text='Already have an account? Sign In instead!' routeName='Signin' />
+      <NavLink routeName='Signin' text='Already have an account? Sign in instead!' />
     </View>
   );
 };
